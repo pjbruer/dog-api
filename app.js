@@ -34,6 +34,10 @@ api.get('/dog/:name', (req, res) => {
     }
 });
 
+api.post('/save', (req, res) => {
+    console.log('/save was called on api');
+})
+
 api.listen(3000, () => {
     console.log(`server running on hostname ${hostname} and on port ${port}`)
 });
