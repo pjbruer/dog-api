@@ -4,6 +4,7 @@
   "description": "A simple lambda to practice reading and writing to a dynamodb",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

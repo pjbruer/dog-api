@@ -1,6 +1,8 @@
 var express = require('express');
 var api = express();
 
+//process.env.NODE_ENV - fetch secrets from aws secrets manager
+
 const hostname = '127.0.0.1';
 const port = 3000;
 
