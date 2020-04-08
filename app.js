@@ -1,14 +1,15 @@
+//var auth = require('express-basic-auth')
 var express = require('express');
 var parser = require("body-parser");
-var api = express();
-
-//var auth = require('express-basic-auth')
-
 //process.env.NODE_ENV - fetch secrets from aws secrets manager
-
+var api = express();
 /*api.use(basicAuth({
     users: { 'admin': 'supersecret' }
 }))*/
+
+
+//TODO - Refactor and break out code into modules
+
 api.use(parser.urlencoded({ extended: false }));
 api.use(parser.json());
 
