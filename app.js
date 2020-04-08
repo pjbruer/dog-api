@@ -1,7 +1,13 @@
 var express = require('express');
 var api = express();
 
+//var auth = require('express-basic-auth')
+
 //process.env.NODE_ENV - fetch secrets from aws secrets manager
+
+/*api.use(basicAuth({
+    users: { 'admin': 'supersecret' }
+}))*/
 
 const hostname = '127.0.0.1';
 const port = 3000;
