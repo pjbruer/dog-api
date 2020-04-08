@@ -6,11 +6,11 @@ let awsConfig = {
 };
 aws.config.update(awsConfig);
 
-var ddbClient = new AWS.DynamoDB.DocumentClient();
+var ddbClient = new aws.DynamoDB.DocumentClient();
 
 var table = "dogs";
 
-var id = 1;
+var id = "1";
 var name = "Gora";
 
 var params = {
