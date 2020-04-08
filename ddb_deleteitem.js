@@ -1,5 +1,11 @@
 var aws = require('aws-sdk');
-aws.config.update({ region: 'eu-west-1' });
+let awsConfig = {
+    'region': 'eu-west-1',
+    'endpoint': 'http://localhost:8000',
+    'accessKeyId': 'fake123', 'secretAccessKey': 'neeeeews123'
+};
+
+aws.config.update(awsConfig);
 
 var ddb = new aws.DynamoDB({ apiVersion: '2012-08-10' });
 

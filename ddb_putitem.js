@@ -1,22 +1,31 @@
 var aws = require('aws-sdk');
-aws.config.update({ region: 'eu-west-1' });
+let awsConfig = {
+    'region': 'eu-west-1',
+    'endpoint': 'http://localhost:8000',
+    //'accessKeyId': 'john123', 'secretAccessKey': 'doe123'
+};
+aws.config.update(awsConfig);
 
-var ddb = new aws.DynamoDB({ apiVersion: '2012-08-10' });
+var ddbClient = new AWS.DynamoDB.DocumentClient();
+
+var table = "dogs";
+
+var id = 1;
+var name = "Gora";
 
 var params = {
-    TableName: 'DOGS',
+    TableName: table,
     Item: {
-        'DOG_ID': { N: '001' },
-        'DOG_NAME': { S: 'Gora' },
-        'DOG_BREED': { S: 'Schäfer' }
+        "id": id,
+        "name": name
     }
 };
 
-ddb.putItem(params, function (err, data) {
+console.log("Adding a new item...");
+ddbClient.put(params, function (err, data) {
     if (err) {
-        console.log('Error', err);
-        throw Error('Failed to save item to dynamo database');
+        console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
     } else {
-        console.log("Success", data);
+        console.log("Added item:", JSON.stringify(data, null, 2));
     }
-})
+});
