@@ -1,10 +1,11 @@
 var mysql = require('mysql');
 
+console.log("db.config was loaded")
 //local mysql db connection
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'password',
     database: 'mydb'
 });
 
