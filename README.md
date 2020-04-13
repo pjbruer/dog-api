@@ -19,3 +19,6 @@ aws dynamodb describe-table --table-name dogs --endpoint-url http://localhost:80
 
 #### delete item from table
 /delete/id
+
+####m stop docker running database
+docker-compose -f docker-compose-dynamodb-local.yaml down
