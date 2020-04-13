@@ -3,14 +3,20 @@ a simple node api to practice dynamodb integration
 
 ## api documentation
 
-#### save dog to db
+#### post dog to db
 /add
 
-#### get dog by id from db
-/get/id
+#### find dog by id from db
+/dog/id
+
+#### update dog with id from db
+/dog/id
 
 #### delete dog with id from db
 /delete/id
+
+#### get all dogs from db
+/dogs
 
 ## scripts
 
