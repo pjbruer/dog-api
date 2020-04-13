@@ -1,19 +1,15 @@
 # dog-api
 a simple node api to practice dynamodb integration
 
-# steps to reproduce
-docker - installed and running
-docker container configured - check dynamodb-config.yaml for reference
+## api documentation
 
-## api endpoints
+#### save dog to db
+/add
 
-#### put item in table
-/save/dog
-
-#### read item from table
+#### get dog by id from db
 /get/id
 
-#### delete item from table
+#### delete dog with id from db
 /delete/id
 
 ## scripts
