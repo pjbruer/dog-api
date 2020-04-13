@@ -2,7 +2,7 @@
 a simple node api to practice dynamodb integration
 
 # steps to reproduce
-## launch dynamo database 
+## launch dynamo database
 docker-compose -f docker-compose-dynamodb-local.yaml up -d
 
 ## create table 
