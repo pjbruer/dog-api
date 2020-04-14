@@ -2,17 +2,17 @@ module.exports = function (app) {
     var controller = require('../controller/dog.controller');
 
     app.route('/api/dog')
-        .post(controller.create);
+        .post(controller.createDog);
 
     app.route('/api/dog/:id')
-        .get(controller.find)
-
-    app.route('/api/update/:id')
-        .put(controller.update)
-
-    app.route('api/delete/:id')
-        .delete(controller.remove);
+        .get(controller.findById)
 
     app.route('/api/dogs')
         .get(controller.findAll)
+
+    app.route('/api/update/:id')
+        .put(controller.updateDog)
+
+    app.route('api/delete/:id')
+        .delete(controller.removeDog);
 };
