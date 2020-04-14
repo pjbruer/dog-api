@@ -6,7 +6,11 @@ module.exports = function (app) {
 
     app.route('/api/dog/:id')
         .get(controller.find)
+
+    app.route('/api/update/:id')
         .put(controller.update)
+
+    app.route('api/delete/:id')
         .delete(controller.remove);
 
     app.route('/api/dogs')

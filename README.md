@@ -4,19 +4,19 @@ a simple node api to practice dynamodb and mysql integration
 ## api documentation
 
 #### post dog to db
-/add
+api/dog
 
-#### find dog by id from db
-/dog/id
+#### find dog with id from db
+api/dog/id
 
 #### update dog with id from db
-/dog/id
+api/update/id
 
 #### delete dog with id from db
-/delete/id
+api/delete/id
 
 #### get all dogs from db
-/dogs
+api/dogs
 
 ## scripts
 
