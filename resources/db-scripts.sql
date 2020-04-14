@@ -1,27 +1,25 @@
-CREATE TABLE
-IF NOT EXISTS `tasks`
-(
-  `id` int
-(11) NOT NULL,
-  `task` varchar
-(200) NOT NULL,
-  `status` tinyint
-(1) NOT NULL DEFAULT '1',
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `dogs`
+(`id` int
+(20) NOT NULL,
+`name` varchar
+(200),
+`breed` varchar
+(200),
+`created_at` datetime DEFAULT CURRENT_TIMESTAMP
 );
 
-ALTER TABLE `tasks`
+ALTER TABLE `dogs`
 ADD PRIMARY KEY
 (`id`);
-ALTER TABLE `tasks` MODIFY `id` int
+ALTER TABLE `dogs` MODIFY `id` int
 (11) NOT NULL AUTO_INCREMENT;
 
-INSERT INTO `tasks` (`
-id`,
-`task
-`, `status`, `created_at`) VALUES
-(1, 'Find bugs', 1, '2016-04-10 23:50:40'),
-(2, 'Review code', 1, '2016-04-10 23:50:40'),
-(3, 'Fix bugs', 1, '2016-04-10 23:50:40'),
-(4, 'Refactor Code', 1, '2016-04-10 23:50:40'),
-(5, 'Push to prod', 1, '2016-04-10 23:50:50');
+INSERT INTO `dogs` (`
+id`,`name
+`,`breed`,`created_at`) 
+VALUES
+(1, 'gora', 'german shepherd', '2020-04-10 23:50:40'),
+(2, 'moss', 'eastern laika', '2020-04-10 23:50:40'),
+(3, 'ia', 'Jagdterrier', '2020-04-10 23:50:40'),
+(4, 'alice', 'springer spaniel', '2020-04-10 23:50:40'),
+(5, 'sixten', 'irish setter', '2020-04-10 23:50:50');
