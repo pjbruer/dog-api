@@ -1,6 +1,6 @@
 var Dog = require('../model/dog.service.js');
 
-//TODO - fix proper response status
+//TODO - fix proper response status and exception/error handling
 
 exports.create = function (req, res) {
     console.log("/create was called on api");

@@ -1,7 +1,8 @@
 var mysql = require('mysql');
 
 console.log("db.config was loaded")
-//local mysql db connection
+
+//local mysql database connection
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
