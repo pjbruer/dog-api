@@ -22,4 +22,4 @@ app.use(parser.json());
 
 routes(app);
 
-console.log(`api is alive and running on: ${port}`);
+console.log(`api is alive and running on port: ${port}`);

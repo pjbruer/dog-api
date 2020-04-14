@@ -2,50 +2,51 @@ var Dog = require('../model/dog.service.js');
 
 //TODO - fix proper response status and exception/error handling
 
-exports.createDog = function (req, res) {
-    console.log("/create was called on api");
+exports.createDog = (req, res) => {
+    console.log("/createDog was called on api");
     var dog = new Dog(req.body);
-
     //TODO - handles null error poorly
     if (!dog.id || !dog.name) {
-        res.status(400).send({ error: true, message: 'Please provide a dog with id, name and breed' });
+        res.status(400).send({ error: true, message: 'Bad request, please provide dog with id, name, breed' });
     }
     else {
         Dog.addDog(dog, function (err, dog) {
-            if (err)
-                res.send(err);
-            res.json(dog);
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.status(204).send(dog);
+            }
         });
     }
 };
 
-exports.findById = function (req, res) {
-    console.log("/find was called on api");
+exports.findById = (req, res) => {
+    console.log("/findById was called on api");
     Dog.getDogById(req.params.id, function (err, dog) {
-        if (err)
-            res.send(err);
-        res.json(dog);
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send(dog);
+        }
     });
 };
 
-exports.findAll = function (req, res) {
+exports.findAll = (req, res) => {
     console.log("/findAll was called on api");
     Dog.getAllDogs(function (err, dogs) {
-        console.log('controller')
         if (err) {
-            res.send(err);
+            res.status(500).send(err);
         }
-        console.log('res', dogs);
-        res.status(200).send({ "dogs": [dogs] });
+        res.status(200).send(dogs);
     });
 };
 
 
 exports.updateDog = (req, res) => {
-    console.log("/update was called on api");
-    Dog.updateDogById(req.params.id, new Dog(req.body), function (err, dog) {
+    console.log("/updateDog was called on api");
+    Dog.updateDogById(req.params.id, dog, function (err, dog) {
         if (err) {
-            res.send(err);
+            res.status(500).send(err);
         } else {
             res.status(204).send({ msg: "dog was updated" });
         }
@@ -64,11 +65,13 @@ exports.patchById = (req, res) => {
 };
 
 
-exports.removeDog = function (req, res) {
-    console.log("/remove was called on api");
+exports.removeDog = (req, res) => {
+    console.log("/removeDog was called on api");
     Dog.deleteDogById(req.params.id, function (err, dog) {
-        if (err)
-            res.send(err);
-        res.json({ message: 'Dog successfully deleted' });
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send({ msg: 'dog was successfully deleted' });
+        }
     });
 };

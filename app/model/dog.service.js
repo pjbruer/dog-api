@@ -42,14 +42,12 @@ Dog.getDogById = function (id, result) {
 Dog.getAllDogs = function (result) {
     console.log("--> SELECT_ALL");
     sql.query(SELECT_ALL, function (err, res) {
-
         if (err) {
             console.log("error: ", err);
             result(null, err);
         }
         else {
             console.log('dogs : ', res);
-
             result(null, res);
         }
     });
